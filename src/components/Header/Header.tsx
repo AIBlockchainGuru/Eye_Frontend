@@ -154,23 +154,24 @@ const Header = () => {
 							alt="logo"
 							className="w-[40px] md:w-[50px] drop-shadow-lg"
 						/>
-						<p className="text-3xl font-light">Eye Eye Tee</p>
+						<p className="md:text-3xl text-xl font-light">Eye Eye Tee</p>
 					</div>
 				</Link>
+			</div>
 
-				{mobileMenu && (
+			<div className="flex items-center">
+				<SearchComponent />
+			</div>
+			{mobileMenu && (
+				<div>
 					<MenuMobile
 						showCatMenu={showCatMenu}
 						setShowCatMenu={setShowCatMenu}
 						setMobileMenu={setMobileMenu}
 						categories={(categories as Category[]) || undefined}
 					/>
-				)}
-			</div>
-
-			<div className="flex items-center">
-				<SearchComponent />
-			</div>
+				</div>
+			)}
 
 			<div className="  flex items-center gap-2   ">
 				{/* {Button } */}
@@ -240,16 +241,16 @@ const Header = () => {
 				{/* Icon end */}
 
 				{/* Mobile icon start */}
-				<div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex md:hidden justify-center items-center hover:bg-black/[0.05] cursor-pointer relative -mr-2">
+				<div className="w-8 md:w-12 h-8 md:h-12 rounded-full  flex md:hidden justify-center items-center hover:bg-black/[0.05] cursor-pointer relative -mr-2">
 					{mobileMenu ? (
 						<VscChromeClose
 							className="text-[16px]"
-							onClick={() => setMobileMenu(false)}
+							onClick={() => setMobileMenu(!mobileMenu)}
 						/>
 					) : (
 						<BiMenuAltRight
 							className="text-[20px]"
-							onClick={() => setMobileMenu(true)}
+							onClick={() => setMobileMenu(!mobileMenu)}
 						/>
 					)}
 				</div>
