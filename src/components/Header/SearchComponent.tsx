@@ -73,7 +73,7 @@ const SearchComponent = () => {
 	};
 
 	return (
-		<div className="relative">
+		<div className="relative w-1/4 md:w-fit overflow-hidden">
 			<div className="border-2 border-black flex  gap-2  h-[2.3em]  px-3 py-1 rounded-full pl-5 ">
 				<input
 					type="text"

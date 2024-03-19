@@ -2,7 +2,8 @@ import Image from "next/image";
 import HeroBanner from "@/components/HeroBanner";
 import Wrapper from "@/components/Wrapper";
 import Designers from "@/components/Home/Designers";
-import CategorySection from "@/components/Home/CategorySection";
+import CategorySection from "@/components/Home/CategorySection/CategorySection";
+import ExploreSection from "@/components/Home/ExploreSection/ExploreSection";
 
 export default function Home() {
 	return (
@@ -14,11 +15,11 @@ export default function Home() {
 				<div>
 					<Designers />
 				</div>
-				<div className="  text-start  mx-0 my-[90px]">
+				<div className="  text-start  mx-0 my-[90px] ">
 					<CategorySection />
 				</div>
 
-				{/* <ExploreSection /> */}
+				<ExploreSection />
 			</Wrapper>
 		</main>
 	);

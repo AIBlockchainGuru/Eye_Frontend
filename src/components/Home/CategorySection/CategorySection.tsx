@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CategoryCard from "./CategoryCard";
+import CategoryCard from "../../mainComponents/CategoryCard";
 
 const categoriesData = [
 	{ item: "t-shirts", color: "red" },
