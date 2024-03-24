@@ -149,17 +149,19 @@ const Header = () => {
 			<div className="flex gap-2 items-center ml-5 ">
 				<Link href="/">
 					<div className=" flex items-end gap-2 ">
-						<img
+						{/* <img
 							src="/logo.png"
 							alt="logo"
 							className="w-[40px] md:w-[50px] drop-shadow-lg"
-						/>
-						<p className="md:text-3xl text-xl font-light">Eye Eye Tee</p>
+						/> */}
+						<p className="md:text-3xl text-xl font-light font-heading1">
+							Deauth
+						</p>
 					</div>
 				</Link>
 			</div>
 
-			<div className="flex items-center">
+			<div className="flex items-center w-fit lg:w-[600px] ">
 				<SearchComponent />
 			</div>
 			{mobileMenu && (
@@ -177,18 +179,42 @@ const Header = () => {
 				{/* {Button } */}
 				<button onClick={handleSellArtButton}>
 					<a
-						className="border-2 border-black p-2 rounded-full px-5 py-4 hover:bg-black/[0.05] transition-all duration-200"
+						className=" px-5 py-4 hover:text- transition-all duration-200 text-accent"
 						href="#"
 					>
 						<span
-							className={`text font-bold  active:scale-105 duration-300 transition-all  text-black`}
+							className={` font-heading1 text-xl  active:scale-105 duration-300 transition-all  `}
 						>
 							Sell Your Art
 						</span>
 					</a>
 				</button>
+				<button>
+					<a
+						className=" px-5 py-4 hover:bg-black/[0.05] transition-all duration-200"
+						href="#"
+					>
+						<span
+							className={` font-bold  active:scale-105 duration-300 transition-all  `}
+						>
+							Log In
+						</span>
+					</a>
+				</button>
+				<button>
+					<a
+						className=" px-5 py-4 hover:bg-black/[0.05] transition-all duration-200"
+						href="#"
+					>
+						<span
+							className={` font-bold  active:scale-105 duration-300 transition-all  `}
+						>
+							Sign Up
+						</span>
+					</a>
+				</button>
 
-				<div className={`flex border-2 border-black rounded-full   `}>
+				<div className={`flex    `}>
 					<div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative">
 						<IoMdHeartEmpty className={`text-[19px] md:text-[24px] `} />
 						<div className="h-[14px] md:h-[18px] min-w-[14px] md:min-w-[18px] rounded-full bg-red-600 absolute top-1 left-5 md:left-7 text-white text-[10px] md:text-[12px] flex justify-center items-center px-[2px] md:px-[5px]">
@@ -198,7 +224,7 @@ const Header = () => {
 
 					<Link href="/cart">
 						<div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative">
-							<BsCart className={`text-[15px] md:text-[20px] `} />
+							<BsCart className={`text-[15px] md:text-[20px] fill-black`} />
 							{/* TODO */}
 							{/* {cartItems.length > 0 && (
 								<div className="h-[14px] md:h-[18px] min-w-[14px] md:min-w-[18px] rounded-full bg-red-600 absolute top-1 left-5 md:left-7 text-white text-[10px] md:text-[12px] flex justify-center items-center px-[2px] md:px-[5px]">

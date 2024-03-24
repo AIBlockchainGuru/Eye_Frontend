@@ -1,9 +1,10 @@
 import Image from "next/image";
-import HeroBanner from "@/components/HeroBanner";
+import HeroBanner from "@/components/Home/HeroBanner";
 import Wrapper from "@/components/Wrapper";
 import Designers from "@/components/Home/Designers";
 import CategorySection from "@/components/Home/CategorySection/CategorySection";
 import ExploreSection from "@/components/Home/ExploreSection/ExploreSection";
+import BestSellingSection from "@/components/Home/BestSeller/BestSellingSection";
 
 export default function Home() {
 	return (
@@ -12,6 +13,9 @@ export default function Home() {
 				<HeroBanner />
 			</div>
 			<Wrapper>
+				<div>
+					<BestSellingSection />
+				</div>
 				<div>
 					<Designers />
 				</div>
