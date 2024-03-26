@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dialog";
 
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
-import Editor from "./Editor";
+import Editor from "../Editor";
 
 export default function CreateProduct() {
 	// body content

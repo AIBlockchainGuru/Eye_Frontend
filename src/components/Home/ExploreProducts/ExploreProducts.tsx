@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ProductCard from "@/components/mainComponents/ProductCard";
 
 import { getAllProducts } from "@/helpers/api/productApis";
+import ProductCard from "@/components/mainComponents/ProductCard";
 
 interface ProductType {
 	mainImageUrl: string;
@@ -30,26 +30,28 @@ const ExploreSection = () => {
 
 		allProducts();
 	}, []);
+
 	return (
 		<>
-			<div className=" mb-[1.4em] flex gap-3  justify-center   text-4xl text-[#595957] ">
-				Explore the latest Products
+			<div className=" text-left font-heading1    text-4xl text-black">
+				latest Launch
 			</div>
 			<div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 md:gap-5 gap-2 my-6 md:px-5 ">
-				{productData.map((product, index) => (
-					<ProductCard
-						key={index}
-						category={product.category}
-						color={product.color}
-						mainImageUrl={product.mainImageUrl}
-						otherImages={product.otherImages}
-						price={product.price}
-						productId={product.productId}
-					/>
-				))}
-				{/* {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((product, index) => (
-					<ProductCard key={index} />
-				))} */}
+				{productData.length != 0
+					? productData.map((product, index) => (
+							<ProductCard
+								key={index}
+								category={product.category}
+								color={product.color}
+								mainImageUrl={product.mainImageUrl}
+								otherImages={product.otherImages}
+								price={product.price}
+								productId={product.productId}
+							/>
+					  ))
+					: [1, 2, 3, 4, 5].map((product, index) => (
+							<ProductCard key={index} />
+					  ))}
 			</div>
 		</>
 	);

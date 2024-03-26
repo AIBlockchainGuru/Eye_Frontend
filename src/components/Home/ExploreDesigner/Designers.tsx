@@ -10,8 +10,8 @@ import {
 } from "@/components/ui/carousel";
 import { useDesignerPhotos } from "@/hooks/useDesignerPhoto";
 import Loading from "@/app/loading";
-import { Button } from "../ui/button";
-import { Skeleton } from "../ui/skeleton";
+import { Button } from "../../ui/button";
+import { Skeleton } from "../../ui/skeleton";
 
 const Designers = () => {
 	const { designerData, loading } = useDesignerPhotos();
