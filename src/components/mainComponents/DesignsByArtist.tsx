@@ -10,13 +10,13 @@ import {
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useDesigns } from "@/hooks/useDesigns";
+import { useRandomDesigns } from "@/hooks/useRandomDesigns";
 import DesignCard from "@/components/Home/ExploreDesigns/DesignCard";
 
 type Props = {};
 
 const DesignsByArtist = (props: Props) => {
-	const { designs, loading } = useDesigns();
+	const { designs, loading } = useRandomDesigns();
 	return (
 		<div className="">
 			<div>
