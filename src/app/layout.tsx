@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header/Header";
-import { NextUIProvider } from "@nextui-org/react";
 import Footer from "@/components/Footer/Footer";
-import store from "@/store/store";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Provider } from "react-redux";
+import { Toaster } from "@/components/ui/toaster";
+import { Providers } from "./store/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,10 +22,12 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={inter.className}>
 				{/* <Provider store={store}> */}
-				<Header />
-				{children}
-
-				<Footer />
+				<Providers>
+					<Header />
+					<div className="mt-24">{children}</div>
+					<Toaster />
+					<Footer />
+				</Providers>
 				{/* </Provider> */}
 			</body>
 		</html>

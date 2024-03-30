@@ -73,14 +73,14 @@ const SearchComponent = () => {
 	};
 
 	return (
-		<div className="relative w-1/4 md:w-fit overflow-hidden">
-			<div className="border-2 border-black flex  gap-2  h-[2.3em]  px-3 py-1 rounded-full pl-5 ">
+		<div className="relative overflow-hidden  w-full lg:px-10 mx-auto">
+			<div className="border-2 border-black flex  justify-between  h-[2.3em]  px-3 py-1 rounded-full pl-5 ">
 				<input
 					type="text"
 					value={searchQuery}
 					onChange={handleChange}
 					placeholder="Search Products..."
-					className="outline-none "
+					className="outline-none w-full "
 				/>
 				<button disabled={isLoading}>
 					{
@@ -94,7 +94,7 @@ const SearchComponent = () => {
 			</div>
 
 			{searchQuery && (
-				<div className="absolute bg-white w-[400px] rounded-md border border-gray-300 shadow-md mt-3  -left-[5.5em]">
+				<div className="absolute bg-white w-full rounded-md border border-gray-300 shadow-md mt-3  -left-[5.5em]">
 					{searchResults.map((result, index) => (
 						<div key={index}>{result.name}</div>
 					))}

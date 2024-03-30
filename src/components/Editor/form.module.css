@@ -1,0 +1,59 @@
+/* DesignSelection.css */
+
+.design-selection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .design-table {
+    border: 2px solid #ddd;
+    border-collapse: collapse;
+    width: 80%;
+  }
+  
+  .design-table-row {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .design-header {
+    background-color: #f0f0f0;
+    font-weight: bold;
+  }
+  
+  .design-cell {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .design-preview img {
+    max-width: 100%;
+    max-height: 300px; /* Adjust the dimensions as needed */
+  }
+  
+  .categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .category {
+    margin: 20px;
+    text-align: center;
+  }
+  
+  .category-images {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .category-images img {
+    max-width: 45%; /* Adjust the dimensions as needed */
+    max-height: auto;
+    border: 1px solid #ddd;
+  }
+  

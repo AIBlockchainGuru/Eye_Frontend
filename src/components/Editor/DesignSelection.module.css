@@ -1,0 +1,32 @@
+/* src/components/LogoUploader.css */
+.logo-uploader-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .upload-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .upload-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .output-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .output-image {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+  }
+  
