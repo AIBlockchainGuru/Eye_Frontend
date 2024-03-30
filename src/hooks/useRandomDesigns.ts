@@ -7,7 +7,7 @@ interface Design {
 	designId: string;
 }
 
-export const useDesigns = () => {
+export const useRandomDesigns = () => {
 	const [loading, setLoading] = useState<boolean>(true);
 	const [designs, setDesigns] = useState<Design[]>([]);
 	return { loading, designs };

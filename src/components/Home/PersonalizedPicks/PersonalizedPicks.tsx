@@ -13,7 +13,7 @@ interface ProductType {
 	otherImages: string[];
 }
 
-const ExploreSection = () => {
+const PersonalizedPicks = () => {
 	const [productData, setProductData] = useState<ProductType[]>([]);
 	const [loading, setLoading] = useState(true);
 
@@ -33,8 +33,8 @@ const ExploreSection = () => {
 
 	return (
 		<div className=" md:px-5">
-			<div className=" text-left font-heading1  text-4xl text-black">
-				latest Launch
+			<div className=" text-center font-heading1  text-4xl text-black">
+				Picks For You
 			</div>
 			<div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 md:gap-5 gap-2 my-6  ">
 				{productData.length != 0
@@ -57,4 +57,4 @@ const ExploreSection = () => {
 	);
 };
 
-export default ExploreSection;
+export default PersonalizedPicks;

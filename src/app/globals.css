@@ -5,6 +5,7 @@
 @layer base {
 	:root {
 		--background: 0 0% 100%;
+		--secondary-background: #1e1e1e;
 		--foreground: 20 14.3% 4.1%;
 		--card: 0 0% 100%;
 		--card-foreground: 20 14.3% 4.1%;
@@ -27,7 +28,8 @@
 	}
 
 	.dark {
-		--background: 20 14.3% 4.1%;
+		--background: #1e1e1e;
+		--secondary-background: 0 0% 100%;
 		--foreground: 60 9.1% 97.8%;
 		--card: 20 14.3% 4.1%;
 		--card-foreground: 60 9.1% 97.8%;

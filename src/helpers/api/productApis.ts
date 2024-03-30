@@ -58,7 +58,7 @@ export const getCategoryColor = async ({ category }: { category: string }) => {
 	}
 };
 
-export const getProducts = async ({ product_id }: { product_id: string }) => {
+export const getProduct = async ({ product_id }: { product_id: string }) => {
 	let url = `${API_URL}/api/product/read/${product_id}`;
 	if (!product_id) {
 		console.error("no category selected");

@@ -8,15 +8,15 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Button } from "../../ui/button";
-import { Skeleton } from "../../ui/skeleton";
-import { useRandomDesigns } from "@/hooks/useRandomDesigns";
-import DesignCard from "./DesignCard";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useDesigns } from "@/hooks/useDesigns";
+import DesignCard from "@/components/Home/ExploreDesigns/DesignCard";
 
 type Props = {};
 
-const ExploreDesigns = (props: Props) => {
-	const { designs, loading } = useRandomDesigns();
+const DesignsByArtist = (props: Props) => {
+	const { designs, loading } = useDesigns();
 	return (
 		<div className="">
 			<div>
@@ -76,4 +76,4 @@ const LoadingCard = () => {
 	);
 };
 
-export default ExploreDesigns;
+export default DesignsByArtist;
