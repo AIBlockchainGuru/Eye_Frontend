@@ -12,7 +12,7 @@ import { useDesignerPhotos } from "@/hooks/useDesignerPhoto";
 
 const HeroBanner = () => {
 	return (
-		<div className="w-screen bg-red-400 h-fit relative mt-9 ">
+		<div className="w-screen h-fit relative mt-9 ">
 			<Carousel className="w-full  ">
 				<CarouselContent className="">
 					<CarouselItem>
@@ -25,7 +25,13 @@ const HeroBanner = () => {
 						/>
 					</CarouselItem>
 					<CarouselItem>
-						<Image src={"/bannerImage.png"} alt="haha" fill objectFit="fill" />
+						<Image
+							src={"/bannerImage.png"}
+							alt="haha"
+							width={2000}
+							height={2000}
+							className="object-fill"
+						/>
 					</CarouselItem>
 				</CarouselContent>
 			</Carousel>

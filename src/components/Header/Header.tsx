@@ -1,26 +1,20 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
-import Wrapper from "@/components/Wrapper";
 
 import Link from "next/link";
-import Menu from "./Menu";
 import MenuMobile from "./MenuMobile";
 import { CgProfile } from "react-icons/cg";
-import { MdLabelImportant, MdLogout } from "react-icons/md";
 import { MdOutlineLogin } from "react-icons/md";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { BsCart } from "react-icons/bs";
 import { BiMenuAltRight } from "react-icons/bi";
 import { VscChromeClose } from "react-icons/vsc";
-// import { fetchDataFromApi } from "@/utils/api";
-import { Selector, useSelector } from "react-redux";
-import logo from "@/public/logo.png";
-import { ToastContainer, toast } from "react-toastify";
+
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Router, { useRouter } from "next/navigation";
-import designer from "@/app/auth/designer";
+
 import SearchComponent from "./SearchComponent";
-import Image from "next/image";
 
 interface Category {
 	id: number;
