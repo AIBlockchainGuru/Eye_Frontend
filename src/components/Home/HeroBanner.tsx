@@ -8,12 +8,14 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useDesignerPhotos } from "@/hooks/useDesignerPhoto";
 
 const HeroBanner = () => {
 	return (
 		<div className="w-screen h-fit relative mt-9 ">
 			<Carousel className="w-full  ">
+				<CarouselNext />
+				<CarouselNext />
+
 				<CarouselContent className="">
 					<CarouselItem>
 						<Image
