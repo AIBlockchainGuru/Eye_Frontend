@@ -2,13 +2,16 @@ import Link from "next/link";
 import React from "react";
 import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 import Wrapper from "@/components/Wrapper";
-import FooterStrip from "./FooterStrips";
+import { FooterStripOrange, FooterStripGray } from "./FooterStrips";
 
 const Footer = () => {
 	return (
-		<footer className="bg-black text-white  pb-3">
+		<footer className="bg-black text-white  pb-3 mt-20">
 			<div className=" w-screen relative rotate-1">
-				<FooterStrip />
+				<FooterStripOrange />
+			</div>
+			<div className=" w-screen relative -rotate-[5deg] overflow-hidden   -top-32 -z-20">
+				<FooterStripGray />
 			</div>
 			<Wrapper className="flex justify-between flex-col md:flex-row gap-[50px] md:gap-0">
 				<div className="flex-col flex gap-5">

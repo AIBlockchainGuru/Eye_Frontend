@@ -1,67 +1,58 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { Skeleton } from "../ui/skeleton";
+import { useState } from "react";
 
 interface dashboardCardProps {
-	data?: {
-		sales: number;
-	};
-	product_photo?: string;
-	product_colors?: string[];
-	product_price?: number;
-	product_stock?: number;
+	mainImageUrl?: string;
+	productId?: string;
 }
 
 const DashboardProductCard = ({
-	data,
-	product_photo,
-	product_colors,
-	product_price,
-	product_stock,
+	mainImageUrl,
+	productId,
 }: dashboardCardProps) => {
-	return (
-		<Link
-			href="/productDetails"
-			className="transform overflow-hidden bg-white/[0.3] rounded-md"
-		>
-			<div className="h-[250px] w-[200px] mx-auto">
-				<div className="mt-2 mx-2 rounded-lg flex-row flex justify-center ">
-					{product_photo ? (
-						<Image
-							width={250}
-							height={250}
-							src={product_photo}
-							alt="shirt"
-							className="object-cover"
-						/>
-					) : (
-						<Image width={200} height={200} src="/shirt.png" alt="shirt" />
-					)}
-				</div>
-			</div>
+	const [image, setImage] = useState(
+		mainImageUrl ? mainImageUrl : "/shirt.png"
+	);
 
-			<div className="p-2 -mt-5 px-3 shadow-md grid grid-cols-3">
-				<div className="text-xs text-black/60 text-wrap mx-auto">
-					<div className="text-md mx-auto text-center">sales</div>
-					<div className="text-xl mx-auto text-center">
-						{data?.sales || "$400"}
-					</div>
-				</div>
-				<div className="text-xs text-black/60 text-wrap mx-auto">
-					<div className="text-md mx-auto text-center">revenue</div>
-					<div className="text-xl mx-auto text-center">
-						{data?.sales || "$200"}
-					</div>
-				</div>
-				<div className="text-xs text-black/60 text-wrap mx-auto">
-					<div className="text-md mx-auto text-center">profit</div>
-					<div className="text-xl mx-auto text-center">
-						{data?.sales || "$100"}
-					</div>
-				</div>
-				<div className="my-2 flex flex-row justify-start"></div>
-				<div className="flex items-center text-black/[0.5] "></div>
+	if (!mainImageUrl) {
+		return <LoadingCard />;
+	}
+	return (
+		<div className="group flex flex-col gap-1 overflow-hidden  ">
+			<Link href="">
+				<Image src={image} alt="product" width={247} height={330} />
+			</Link>
+
+			<div className="flex flex-col text-left gap-1">
+				<div className="text-2xl font-bold">product Name</div>
 			</div>
-		</Link>
+			<div className="text-muted-foreground group-hover:text-accent transition-all duration-200 text-sm flex gap-5">
+				<h2>revenue: 300$</h2>
+				<h2>orders: 32</h2>
+			</div>
+		</div>
+	);
+};
+const LoadingCard = () => {
+	return (
+		<div className=" group flex flex-col gap-3 backdrop-blur-sm overflow-hidden w-full  ">
+			<Skeleton className="w-full h-[330px] bg-accent" />
+
+			<div className="flex flex-col text-left gap-1">
+				<Skeleton className="rounded-xl h-5 w-3/4 mr-auto" />
+				<Skeleton className="rounded-xl h-5  w-1/4 mr-auto" />
+			</div>
+			<Skeleton className="rounded-xl h-5 bg-accent  w-1/4 mr-auto" />
+
+			<div className="my-2 flex flex-row justify-start">
+				<Skeleton className="mr-2 size-7 bg-accent-foreground rounded-full" />
+				<Skeleton className="mr-2 size-7 bg-accent-foreground rounded-full" />
+				<Skeleton className="mr-2 size-7 bg-accent-foreground rounded-full" />
+			</div>
+		</div>
 	);
 };
 

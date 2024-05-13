@@ -11,7 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useRandomDesigns } from "@/hooks/useRandomDesigns";
-import DesignCard from "@/components/Home/ExploreDesigns/DesignCard";
+import DesignCard from "@/components/mainComponents/DesignCard";
 
 type Props = {};
 

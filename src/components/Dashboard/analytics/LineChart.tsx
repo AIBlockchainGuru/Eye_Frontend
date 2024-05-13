@@ -21,9 +21,9 @@ const LineChartComponent = ({ data }: { data: any[] }) => {
 				<Tooltip />
 				<Legend />
 				<Line
-					type="monotone"
+					type="basis"
 					dataKey="value"
-					stroke="#8884d8"
+					stroke="#000000"
 					activeDot={{ r: 8 }}
 				/>
 			</LineChart>
