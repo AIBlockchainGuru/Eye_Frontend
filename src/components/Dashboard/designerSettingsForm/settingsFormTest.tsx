@@ -22,7 +22,23 @@ import {
 } from "@/helpers/api/designerApi";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const staticSettings = {
+interface Settings {
+	isPrivate: boolean;
+	showDesigns: boolean;
+	designIds: string[];
+	showFollowers: boolean;
+	showFullName: boolean;
+	showPhone: boolean;
+	showDescription: boolean;
+	showCoverPhoto: boolean;
+	showProfilePhoto: boolean;
+	socialMediaLink1: string;
+	socialMediaLink2: string;
+	portfolioLink1: string;
+	portfolioLink2: string;
+}
+
+const staticSettings: Settings = {
 	isPrivate: false,
 	showDesigns: true,
 	designIds: [],
@@ -116,16 +132,18 @@ const SettingsSheet = () => {
 	return (
 		<div>
 			<Sheet>
-				<div className="bg-black text-white rounded-full items-center text-center w-min px-2 ">
-					<SheetTrigger>
-						<IoMdSettings className="pt-2" />
-					</SheetTrigger>
-				</div>
+				<SheetTrigger>
+					<Button className="px-3 text-md text-white text-center flex gap-3 justify-between py-1 mr-auto rounded-full bg-black">
+						<h1>Edit Profile</h1>
+						<IoMdSettings />
+					</Button>
+				</SheetTrigger>
+
 				<SheetContent>
 					<SheetHeader>
 						<SheetTitle>Edit profile</SheetTitle>
 						<SheetDescription>
-							Make changes to your profile here. Click save when you're done.
+							{"Make changes to your profile here. Click save when youre done."}
 						</SheetDescription>
 					</SheetHeader>
 					{loading ? (
