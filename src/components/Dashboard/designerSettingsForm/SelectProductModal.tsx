@@ -5,7 +5,6 @@ import {
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
-	DialogClose,
 } from "@/components/ui/dialog";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
@@ -16,12 +15,12 @@ import React, { useEffect, useState } from "react";
 import { getAllDesigns } from "@/helpers/api/designerApi";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const SelectProductModal = ({ designerId }) => {
+const SelectProductModal = ({ designerId }: { designerId: string }) => {
 	const [designs, setDesigns] = useState({ designs: [] });
 	const [loading, setLoading] = useState(true);
-	const [selectedDesigns, setSelectedDesigns] = useState([]);
+	const [selectedDesigns, setSelectedDesigns] = useState<string[]>([]);
 
-	const handleSelectedChange = (product_id) => {
+	const handleSelectedChange = (product_id: string) => {
 		if (!selectedDesigns.includes(product_id)) {
 			setSelectedDesigns([...selectedDesigns, product_id]);
 		} else {
@@ -49,9 +48,9 @@ const SelectProductModal = ({ designerId }) => {
 	}, [designerId]);
 
 	return (
-		<Dialog className="h-2/3">
-			<DialogTrigger className="text-sm w-full h-full my-auto ">
-				<div className="bg-black/[0.8] text-white flex h-full flex-row gap-7 px-4 py-2 rounded-md">
+		<Dialog>
+			<DialogTrigger className="text-sm w-full h-full my-auto flex-row ">
+				<div className="bg-white/[0.6] hover:bg-accent transition-all duration-300 text-white flex w-full h-full flex-row justify-between px-4 py-2 rounded-md">
 					<p className="my-auto">change featured designs</p>
 					<MdOpenInBrowser className="text-3xl" />
 				</div>
@@ -85,7 +84,7 @@ const SelectProductModal = ({ designerId }) => {
 									alt="design"
 									width={75}
 									height={75}
-									src={p.designImages[0].url}
+									src={p?.designImages[0].url}
 									className="mx-auto"
 								/>
 								<span className="mx-auto">{p.title}</span>
