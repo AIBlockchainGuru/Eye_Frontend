@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Providers } from "./store/provider";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,7 @@ export default function RootLayout({
 				{/* <Provider store={store}> */}
 				<Providers>
 					<Header />
-					<div className="mt-24">{children}</div>
+					<div className="mt-20 bg-white">{children}</div>
 					<Toaster />
 					<Footer />
 				</Providers>
