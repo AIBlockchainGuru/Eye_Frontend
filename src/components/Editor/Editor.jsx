@@ -1,15 +1,15 @@
+"use client"
+
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Wrapper from "@/components/Wrapper";
 import { Button } from "@/components/ui/button";
-import ImageOverlay from "@/components/mainComponents/Editor/image";
+import ImageOverlay from "./ImageOverlay";
 import Image from "next/image";
-import ip from "../public/upload.png";
-import CustomTextComponent from "@/components/mainComponents/CustomTextComponent";
 import { toast } from "react-toastify";
 
 const Editor = () => {
-	const router = useRouter();
+	// const router = useRouter();
 	const [selectedImage, setSelectedImage] = useState(null);
 	const [userDesign, setUserDesign] = useState(null);
 	const [isDesignUploaded, setIsDesignUploaded] = useState(false);
@@ -85,11 +85,11 @@ const Editor = () => {
 	//   }
 	// };
 
-	const handleNameChange = (event: any) => {
+	const handleNameChange = (event) => {
 		setName(event.target.value);
 	};
 
-	const handleDescriptionChange = (event: any) => {
+	const handleDescriptionChange = (event) => {
 		setDescription(event.target.value);
 	};
 
@@ -228,7 +228,7 @@ const Editor = () => {
 								)}
 							</div>
 							<div className="relative">
-								<Image src={ip} alt="image" />
+								<Image src='/upload.png' alt="image" width={200} height={200} />
 
 								<div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  ">
 									<div className="flex flex-col gap-5 items-center glass p-7 pt-[1em]">
@@ -265,9 +265,9 @@ const Editor = () => {
 							</div>
 						</div>
 
-						<CustomTextComponent fontSize="29px">
+						<p >
 							Check Your Design on the Products
-						</CustomTextComponent>
+						</p>
 
 						<div className="">
 							<div className="flex gap-4">
