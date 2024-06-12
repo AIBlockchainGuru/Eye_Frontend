@@ -30,7 +30,7 @@ const config = {
 			colors: {
 				//Daisy Ui colors
 				"primary-content": "#ffffff",
-				"secondary-content": "#140b16",
+				"secondary-content": "#ffffff",
 				"accent-content": "#0e0c16",
 				neutral: "#d9d9d9",
 				"neutral-content": "#292929",

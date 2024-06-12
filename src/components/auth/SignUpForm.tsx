@@ -125,18 +125,21 @@ const CreateAccountForm = () => {
 						</div>
 
 						<div className="flex justify-center items-center w-full">
-							<Button type="submit" className="rounded-full px-10 bg-black/60">
+							<button
+								type="submit"
+								className="du-btn du-btn-secondary rounded-full px-10 bg-black/60"
+							>
 								Sign Up
-							</Button>
+							</button>
 						</div>
 
 						<div className="flex justify-center items-center">
-							<Button className="rounded-full px-10 bg-black/60">
+							<button className="du-btn du-btn-secondary rounded-full px-10 bg-black/60">
 								<span className="text-2xl ">
 									<FcGoogle />
 								</span>
 								<span>Continue with Google</span>
-							</Button>
+							</button>
 						</div>
 					</form>
 				</div>
