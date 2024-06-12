@@ -4,15 +4,7 @@ import React, { useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ProductSideviewSheet } from "./ProductSideviewSheet";
 import Link from "next/link";
-
-interface ProductCardProps {
-	mainImageUrl?: string;
-	category?: string;
-	color?: string;
-	price?: number;
-	productId?: string;
-	otherImages?: Array<string>;
-}
+import { ProductCardProps } from "@/types/types";
 
 const ProductCard = ({
 	mainImageUrl,
@@ -71,9 +63,9 @@ const LoadingCard = () => {
 		<div className=" group flex flex-col gap-3 backdrop-blur-sm overflow-hidden w-full  ">
 			<Skeleton className="w-full h-[330px] bg-accent" />
 
-			<div className="flex flex-col text-left gap-1">
-				<Skeleton className="rounded-xl h-5 w-3/4 mr-auto" />
-				<Skeleton className="rounded-xl h-5  w-1/4 mr-auto" />
+			<div className="flex flex-col text-left gap-1 ">
+				<Skeleton className="rounded-xl h-5 w-3/4 mr-auto bg-gray-300" />
+				<Skeleton className="rounded-xl h-5  w-1/4 mr-auto bg-gray-300" />
 			</div>
 			<Skeleton className="rounded-xl h-5 bg-accent  w-1/4 mr-auto" />
 
