@@ -25,7 +25,7 @@ export default function RootLayout({
 				{/* <Provider store={store}> */}
 				<Providers>
 					<Header />
-					<div className="mt-20 bg-white">{children}</div>
+					<div className="mt-20 bg-background">{children}</div>
 					<Toaster />
 					<Footer />
 				</Providers>

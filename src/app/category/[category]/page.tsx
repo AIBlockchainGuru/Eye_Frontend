@@ -44,12 +44,12 @@ export default function Page({ params }: { params: { category: string } }) {
 					<div className="border-[1px] w-[200px] rounded-full h-2 border-black/[0.3] mx-auto bg-transparent">
 						<div className="bg-black/[0.6] rounded-full w-1/2 h-full"></div>
 					</div>
-					<Button
+					<button
 						onClick={loadMoreProducts}
-						className="bg-gray-800 text-white rounded-full"
+						className="du-btn du-btn-secondary rounded-full "
 					>
 						load more products
-					</Button>
+					</button>
 				</div>
 			</div>
 		</div>
