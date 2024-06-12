@@ -139,7 +139,7 @@ const LoginForm = () => {
 					<div className="flex justify-center items-center w-full">
 						<button
 							type="submit"
-							className="rounded-full px-10 du-btn du-btn-secondary py-1"
+							className="rounded-full px-10 du-btn du-btn-secondary py-1 bg-black/60"
 						>
 							Sign Up
 						</button>
@@ -148,7 +148,7 @@ const LoginForm = () => {
 					<div className="flex justify-center items-center">
 						<button
 							onClick={handleGoogleAuth}
-							className="rounded-full du-btn-secondary du-btn py-0"
+							className="rounded-full du-btn-secondary du-btn py-0 bg-black/60"
 						>
 							<span className="text-2xl ">
 								<FcGoogle />
