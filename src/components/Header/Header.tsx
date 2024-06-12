@@ -36,7 +36,7 @@ const Header = () => {
 	const [lastScrollY, setLastScrollY] = useState<number>(0);
 	const [textColor, setTextColor] = useState<string>("text-black");
 	const [categories, setCategories] = useState<Category[] | null>(null);
-	const [active, setActive] = useState<boolean>(false);
+	const [active, setActive] = useState<boolean>(true);
 
 	const pathName = usePathname();
 

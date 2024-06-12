@@ -13,7 +13,7 @@ import PersonalizedPicks from "@/components/Home/PersonalizedPicks/PersonalizedP
 export default function Home() {
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-between ">
-			<div className="mt-1 text-start">
+			<div className="text-start bg-red-400">
 				<HeroBanner />
 			</div>
 			<Wrapper>
