@@ -80,7 +80,7 @@ const SearchComponent = () => {
 					value={searchQuery}
 					onChange={handleChange}
 					placeholder="Search Products..."
-					className="outline-none w-full "
+					className="outline-none w-full bg-background"
 				/>
 				<button disabled={isLoading}>
 					{

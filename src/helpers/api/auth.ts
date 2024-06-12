@@ -1,4 +1,29 @@
-const handleNextAuth = async () => {
+import { DesignerSignupFormValues } from "@/components/auth/DesignerSignupForm";
+import axios, { AxiosRequestConfig } from "axios";
+
+type DesignerSignupValues = DesignerSignupFormValues & {
+	userId: string;
+};
+
+export const handleDesignerSignup = async ({
+	userId,
+	clientName,
+	artistName,
+	clientDescription,
+	phone,
+	addressLine1,
+	addressLine2,
+	city,
+	postalCode,
+	addressType,
+	state,
+	panCardNumber,
+	portfolioLinks,
+	cvLinks,
+	country,
+	coverPhoto,
+	profilePhoto,
+}: DesignerSignupValues) => {
 	console.log("next auth");
 	try {
 		const apiUrl = "http://localhost:8080/api/designer/request";
@@ -8,7 +33,7 @@ const handleNextAuth = async () => {
 		formData.append("userId", userId || "");
 		formData.append("fullname", clientName);
 		formData.append("artistName", artistName);
-		formData.append("description", clientdescription); // Add other fields as needed
+		formData.append("description", clientDescription); // Add other fields as needed
 
 		formData.append("phone", phone || "");
 		formData.append("address_line1", addressLine1);
@@ -21,52 +46,30 @@ const handleNextAuth = async () => {
 		formData.append("portfolioLinks", portfolioLinks);
 		formData.append("cvLinks", cvLinks);
 		formData.append("country", country);
-
-		// Create FormData for files
-		// Create FormData for files
-		if (CoverPhoto) {
-			formData.append("image", CoverPhoto);
+		if (coverPhoto) {
+			formData.append("image", coverPhoto);
 		}
-		if (ProfilePhoto) {
-			formData.append("image", ProfilePhoto);
+		if (profilePhoto) {
+			formData.append("image", profilePhoto);
 		}
-		console.log("form----->", formData, "cover----->", CoverPhoto);
-		// const requestData = {
-		//   userId,
-		//   fullname: clientName,
-		//   artistName: artistName,
-		//   portfolioLinks,
-		//   cvLinks,
-		//   address_line1: addressLine1,
-		//   address_line2: addressLine2,
-		//   city,
-		//   phone,
-		//   postal_code: postalCode,
-		//   country,
-		//   address_type: addressType,
-		//   state,
-		//   description: clientdescription,
-		//   panCardNumber,
-		//   image: formData,
-		// };
+		console.log("form----->", formData, "cover----->", coverPhoto);
 
-		//console.log(requestData, formData);
-		//const boundary = formData.getBoundary();
-		const response = await fetch(apiUrl, {
-			method: "POST",
+		const payload: AxiosRequestConfig = {
+			method: "post",
 			headers: {
 				"x-api-key": apiKey,
+				"Content-Type": "form-data",
 			},
-			body: formData,
-		});
+			data: formData,
+		};
+		const response = await axios(payload);
 
-		if (response.ok) {
-			const result = await response.json();
-			// toastify
-			console.log("Request submitted successfully:", result);
+		if (response.status === 201) {
+			console.log("request for designer signup successful");
 		} else {
 			console.error("Request failed with status:", response.status);
 		}
+		return response.data;
 	} catch (error) {
 		console.log("error", error);
 	}

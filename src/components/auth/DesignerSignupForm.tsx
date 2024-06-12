@@ -5,10 +5,12 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "@nextui-org/react";
+import { handleDesignerSignup } from "@/helpers/api/auth";
+import { toast } from "../ui/use-toast";
 
 type Props = {};
 
-type FormValues = {
+export type DesignerSignupFormValues = {
 	clientName: string;
 	artistName: string;
 	clientDescription: string;
@@ -32,10 +34,33 @@ const DesignerSignupForm = (props: Props) => {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<FormValues>();
+	} = useForm<DesignerSignupFormValues>();
 
-	const onSubmit: SubmitHandler<FormValues> = (data) => {
-		console.log(data);
+	let userId: string | null = null;
+	if (typeof sessionStorage !== "undefined") {
+		userId = sessionStorage.getItem("userID");
+		console.log(userId);
+	} else {
+		console.error("sessionStorage is not supported in this environment.");
+	}
+
+	const toastify = (message: string, res: string) => {
+		toast({
+			title: message,
+			description: res,
+		});
+	};
+
+	const onSubmit: SubmitHandler<DesignerSignupFormValues> = async (data) => {
+		if (userId) {
+			const newDesigner = await handleDesignerSignup({ ...data, userId });
+			toast({ title: "designer account created!", description: "yayy!" });
+		} else {
+			toast({
+				title: "please signup first",
+				description: "signup as a user before a designer",
+			});
+		}
 	};
 
 	return (
@@ -244,7 +269,10 @@ const DesignerSignupForm = (props: Props) => {
 					{errors.country && <span>{errors.country.message}</span>}
 				</div>
 				<div className="flex justify-center items-center">
-					<Button className="rounded-full px-10 bg-black/60 hover:bg-accent transition-all duration-150">
+					<Button
+						type="submit"
+						className="rounded-full px-10 bg-black/60 hover:bg-accent transition-all duration-150"
+					>
 						Confirm
 					</Button>
 				</div>

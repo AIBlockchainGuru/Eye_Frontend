@@ -16,7 +16,28 @@ export interface DashboardSettings {
 
 export interface Design {}
 
-export interface Product {}
+export interface Product {
+	mainImageUrl?: string;
+	category?: string;
+	color?: string;
+	price?: number;
+	productId?: string;
+	otherImages?: Array<string>;
+}
+
+export interface ProductCardProps {
+	mainImageUrl?: string;
+	category?: string;
+	color?: string;
+	price?: number;
+	productId?: string;
+	otherImages?: Array<string>;
+}
+
+export type PageType = {
+	currentPage: number;
+	totalPages: number;
+};
 
 export interface Designer {}
 
