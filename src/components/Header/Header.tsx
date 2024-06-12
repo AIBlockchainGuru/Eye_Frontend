@@ -12,7 +12,7 @@ import { VscChromeClose } from "react-icons/vsc";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Router, { useRouter } from "next/navigation";
+import Router, { usePathname, useRouter } from "next/navigation";
 
 import SearchComponent from "./SearchComponent";
 
@@ -36,10 +36,24 @@ const Header = () => {
 	const [lastScrollY, setLastScrollY] = useState<number>(0);
 	const [textColor, setTextColor] = useState<string>("text-black");
 	const [categories, setCategories] = useState<Category[] | null>(null);
+	const [active, setActive] = useState<boolean>(false);
+
+	const pathName = usePathname();
 
 	const router = useRouter();
 
 	useEffect(() => {
+		if (pathName.includes("auth")) {
+			setActive(false);
+			console.log(
+				pathName,
+				"will be deactivating nav because of 'auth' in the pathName "
+			);
+		} else {
+			console.log(pathName, "will be activating nav");
+
+			setActive(true);
+		}
 		setCategories([
 			{
 				id: 1,
@@ -62,7 +76,7 @@ const Header = () => {
 				},
 			},
 		]);
-	}, []);
+	}, [pathName]);
 
 	//TODO:
 	// const { cartItems } = useSelector((state) => state.cart);
@@ -135,7 +149,9 @@ const Header = () => {
 
 	return (
 		<div
-			className={`w-full h-[50px] md:h-[80px]  flex justify-between  z-20 fixed bg-white top-0 transition-all duration-500  px-5`}
+			className={`w-full h-[50px] md:h-[80px] ${
+				active ? "block" : "hidden"
+			}  flex justify-between  z-20 fixed bg-white top-0 transition-all duration-500  px-5`}
 		>
 			{/* <div
     className={`bg-red-w-full flex justify-between`}

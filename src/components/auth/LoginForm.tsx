@@ -137,21 +137,24 @@ const LoginForm = () => {
 					</div>
 
 					<div className="flex justify-center items-center w-full">
-						<Button type="submit" className="rounded-full px-10 bg-black/60">
+						<button
+							type="submit"
+							className="rounded-full px-10 du-btn du-btn-secondary py-1"
+						>
 							Sign Up
-						</Button>
+						</button>
 					</div>
 
 					<div className="flex justify-center items-center">
-						<Button
+						<button
 							onClick={handleGoogleAuth}
-							className="rounded-full px-10 bg-black/60"
+							className="rounded-full du-btn-secondary du-btn py-0"
 						>
 							<span className="text-2xl ">
 								<FcGoogle />
 							</span>
 							<span>Continue with Google</span>
-						</Button>
+						</button>
 					</div>
 				</form>
 			</div>
