@@ -6,8 +6,10 @@ import { FooterStripOrange, FooterStripGray } from "./FooterStrips";
 
 const Footer = () => {
 	return (
+
 		<footer className="bg-black text-white  pb-3 mt-20">
 			<div className=" w-screen relative rotate-1">
+
 				<FooterStripOrange />
 			</div>
 			<div className=" w-screen relative -rotate-[5deg] overflow-hidden   -top-32 -z-20">

@@ -25,40 +25,62 @@ const config = {
 			},
 		},
 		extend: {
+			scrollBehavior: ["smooth"],
+
 			colors: {
-				border: "hsl(var(--border))",
-				input: "hsl(var(--input))",
-				ring: "hsl(var(--ring))",
-				background: "var(--background)",
+				//Daisy Ui colors
+				"primary-content": "#ffffff",
+				"secondary-content": "#ffffff",
+				"accent-content": "#0e0c16",
+				neutral: "#d9d9d9",
+				"neutral-content": "#292929",
+				"base-100": "#292929",
+				"base-200": "#222222",
+				"base-300": "#1e1e1e",
+				"base-content": "#ffffff",
+				info: "#a8a29e",
+				"info-content": "#0a0a09",
+				success: "#30c17e",
+				"success-content": "#ffffff",
+				warning: "#bd0929",
+				"warning-content": "#ffffff",
+				error: "#bd0929",
+				"error-content": "#ffffff",
+
+				//shadCn colours
+				border: "var(--border)",
+				input: "#787878",
+				ring: "#ff7d04",
+				background: "#ffffff",
 				secondaryBackground: "var(--secondary-background)",
-				foreground: "hsl(var(--foreground))",
+				foreground: "var(--foreground)",
 				primary: {
-					DEFAULT: "hsl(var(--primary))",
-					foreground: "hsl(var(--primary-foreground))",
+					DEFAULT: "#ff7d04",
+					foreground: "ffffff",
 				},
 				secondary: {
-					DEFAULT: "hsl(var(--secondary))",
-					foreground: "hsl(var(--secondary-foreground))",
+					DEFAULT: "#292929",
+					foreground: "#ffffff",
 				},
 				destructive: {
-					DEFAULT: "hsl(var(--destructive))",
-					foreground: "hsl(var(--destructive-foreground))",
+					DEFAULT: "var(--destructive)",
+					foreground: "var(--destructive-foreground)",
 				},
 				muted: {
-					DEFAULT: "hsl(var(--muted))",
-					foreground: "hsl(var(--muted-foreground))",
+					DEFAULT: "#4b4b4b",
+					foreground: "#ffffff",
 				},
 				accent: {
 					DEFAULT: "var(--accent)",
-					foreground: "hsl(var(--accent-foreground))",
+					foreground: "var(--accent-foreground)",
 				},
 				popover: {
-					DEFAULT: "hsl(var(--popover))",
-					foreground: "hsl(var(--popover-foreground))",
+					DEFAULT: "var(--popover)",
+					foreground: "var(--popover-foreground)",
 				},
 				card: {
-					DEFAULT: "hsl(var(--card))",
-					foreground: "hsl(var(--card-foreground))",
+					DEFAULT: "var(--card)",
+					foreground: "var(--card-foreground)",
 				},
 			},
 			borderRadius: {
@@ -89,7 +111,46 @@ const config = {
 			},
 		},
 	},
-	plugins: [require("tailwindcss-animate"), addVariablesForColors],
+	plugins: [
+		require("@tailwindcss/typography"),
+		require("tailwindcss-animate"),
+		addVariablesForColors,
+		require("daisyui"),
+	],
+	daisyui: {
+		themes: [
+			{
+				mytheme: {
+					primary: "#ff7d04",
+					secondary: "#292929",
+					"primary-content": "#ffffff",
+					"secondary-content": "#ffffff",
+					"accent-content": "#0e0c16",
+					neutral: "#d9d9d9",
+					"neutral-content": "#292929",
+					"base-100": "#292929",
+					"base-200": "#222222",
+					"base-300": "#1e1e1e",
+					"base-content": "#ffffff",
+					info: "#a8a29e",
+					"info-content": "#0a0a09",
+					success: "#30c17e",
+					"success-content": "#ffffff",
+					warning: "#bd0929",
+					"warning-content": "#ffffff",
+					error: "#bd0929",
+					"error-content": "#ffffff",
+				},
+			},
+		], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
+		darkTheme: "dark", // name of one of the included themes for dark mode
+		base: true, // applies background color and foreground color for root element by default
+		styled: true, // include daisyUI colors and design decisions for all components
+		utils: true, // adds responsive and modifier utility classes
+		prefix: "du-", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
+		logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
+		themeRoot: ":root", // The element that receives theme color CSS variables
+	},
 } satisfies Config;
 
 function addVariablesForColors({ addBase, theme }: any) {

@@ -5,6 +5,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Providers } from "./store/provider";
+
+
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -23,7 +26,7 @@ export default function RootLayout({
 				{/* <Provider store={store}> */}
 				<Providers>
 					<Header />
-					<div className="mt-24">{children}</div>
+					<div className="mt-20 bg-background">{children}</div>
 					<Toaster />
 					<Footer />
 				</Providers>
