@@ -52,7 +52,7 @@ const config = {
 				input: "#787878",
 				ring: "#ff7d04",
 				background: "#ffffff",
-				secondaryBackground: "var(--secondary-background)",
+				secondaryBackground: "#292929",
 				foreground: "var(--foreground)",
 				primary: {
 					DEFAULT: "#ff7d04",

@@ -8,6 +8,7 @@ import { Providers } from "./store/provider";
 
 
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -23,13 +24,15 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				{/* <Provider store={store}> */}
-				<Providers>
-					<Header />
-					<div className="mt-20 bg-background">{children}</div>
-					<Toaster />
-					<Footer />
-				</Providers>
+			
+					{/* <Provider store={store}> */}
+					<Providers>
+						<Header />
+						<div className=" bg-background">{children}</div>
+						<Toaster />
+						<Footer />
+					</Providers>
+	
 				{/* </Provider> */}
 			</body>
 		</html>

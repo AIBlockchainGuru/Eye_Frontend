@@ -50,7 +50,7 @@ const ExploreSection = () => {
 							/>
 					  ))
 					: [1, 2, 3, 4, 5].map((product, index) => (
-							<ProductCard key={index} />
+							<ProductCard key={index} price={300} />
 					  ))}
 			</div>
 		</div>
