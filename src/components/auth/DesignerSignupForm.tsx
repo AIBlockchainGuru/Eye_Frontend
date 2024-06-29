@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
@@ -7,6 +7,7 @@ import { Textarea } from "../ui/textarea";
 import { Button } from "@nextui-org/react";
 import { handleDesignerSignup } from "@/helpers/api/auth";
 import { toast } from "../ui/use-toast";
+import Image from "next/image";
 
 type Props = {};
 
@@ -34,7 +35,16 @@ const DesignerSignupForm = (props: Props) => {
 		register,
 		handleSubmit,
 		formState: { errors },
+		getValues,
+		setError,
+		clearErrors,
 	} = useForm<DesignerSignupFormValues>();
+	const [selectedProfileImage, setSelectedProfileImage] = useState<
+		string | null
+	>(null);
+	const [selectedCoverImage, setSelectedCoverImage] = useState<string | null>(
+		null
+	);
 
 	let userId: string | null = null;
 	if (typeof sessionStorage !== "undefined") {
@@ -43,13 +53,6 @@ const DesignerSignupForm = (props: Props) => {
 	} else {
 		console.error("sessionStorage is not supported in this environment.");
 	}
-
-	const toastify = (message: string, res: string) => {
-		toast({
-			title: message,
-			description: res,
-		});
-	};
 
 	const onSubmit: SubmitHandler<DesignerSignupFormValues> = async (data) => {
 		if (userId) {
@@ -60,6 +63,79 @@ const DesignerSignupForm = (props: Props) => {
 				title: "please signup first",
 				description: "signup as a user before a designer",
 			});
+		}
+	};
+
+	const handleCoverPhotoChange = (event: any) => {
+		const file = event.target.files[0];
+		const validFormats = ["image/jpeg", "image/png"];
+		const maxSize = 2 * 1024 * 1024; //2MB
+		if (file) {
+			if (!validFormats.includes(file.type)) {
+				setError("coverPhoto", {
+					type: "manual",
+					message: "Invalid file format. Please upload a JPEG or PNG image.",
+				});
+				return;
+			}
+			if (file.size > maxSize) {
+				setError("coverPhoto", {
+					type: "manual",
+					message: "File size exceeds the maximum limit of 2MB.",
+				});
+				return;
+			}
+			clearErrors("coverPhoto");
+
+			const reader = new FileReader();
+
+			reader.onloadend = () => {
+				if (reader.result) {
+					setSelectedCoverImage(reader.result as string);
+				} else {
+					setError("coverPhoto", {
+						type: "manual",
+						message: "Failed to read the selected image.",
+					});
+				}
+			};
+			reader.readAsDataURL(file);
+		}
+	};
+	const handleProfilePhotoChange = (event: any) => {
+		const file = event.target.files[0];
+		const validFormats = ["image/jpeg", "image/png"];
+		const maxSize = 4 * 1024 * 1024; //4MB
+		if (file) {
+			if (!validFormats.includes(file.type)) {
+				setError("profilePhoto", {
+					type: "manual",
+					message: "Invalid file format. Please upload a JPEG or PNG image.",
+				});
+				return;
+			}
+			if (file.size > maxSize) {
+				setError("profilePhoto", {
+					type: "manual",
+					message: "File size exceeds the maximum limit of 2MB.",
+				});
+				return;
+			}
+			clearErrors("profilePhoto");
+
+			const reader = new FileReader();
+
+			reader.onloadend = () => {
+				if (reader.result) {
+					setSelectedProfileImage(reader.result as string);
+				} else {
+					setError("profilePhoto", {
+						type: "manual",
+						message: "Failed to read the selected image.",
+					});
+				}
+			};
+			reader.readAsDataURL(file);
 		}
 	};
 
@@ -75,35 +151,77 @@ const DesignerSignupForm = (props: Props) => {
 				{/* image data  */}
 				<div className="flex flex-col gap-5">
 					<h1 className="font-heading1 text-2xl">Add Logos And Banners</h1>
-					<h2 className="text-xs text-muted">{`upload your original art and choose products.atleast add 4-5 design to make your shop famous .`}</h2>
+					<h2 className="text-md text-muted">{`upload your original art and choose products.atleast add 4-5 design to make your shop famous .`}</h2>
 
 					<div className="flex flex-col md:flex-row gap-10">
 						<div className="flex flex-col gap-3">
-							<Label className="text-xl text-muted">Profile photo</Label>
-							<div className="size-44 rounded-full bg-muted "></div>
-							<p className="text-muted ">
+							<Label className="text-xl text-profile-content">
+								Profile photo
+							</Label>
+							<div className="du-avatar">
+								{selectedProfileImage ? (
+									<div className="w-44 rounded-full">
+										<Image
+											src={selectedProfileImage}
+											width={300}
+											height={300}
+											alt="profile photo"
+										/>
+									</div>
+								) : (
+									<div className="size-44 rounded-full bg-muted"></div>
+								)}
+							</div>
+							<p className="text-muted text-sm">
 								{`You can inject a little more personality into your profile and
 								help people recognize you across Redbubble by uploading an
 								avatar (an image, photo or other graphic icon of "you").`}
 							</p>
 							<Input
-								className="rounded-full w-3/4 file:bg-accent file:h-full file:rounded-full file:cursor-pointer p-0"
+								className="rounded-full w-3/4 file:du-btn file:du-btn-secondary file:bg-accent file:min-h-0 file:h-full file:rounded-full file:py-0 p-0"
 								type="file"
-								{...register("profilePhoto")}
+								{...(register("profilePhoto"),
+								{ onChange: handleProfilePhotoChange })}
 							/>
+							{errors.profilePhoto && (
+								<span className="text-warning">
+									{errors.profilePhoto.message}
+								</span>
+							)}
 						</div>
 						<div className="flex flex-col gap-3">
-							<Label className="text-xl text-muted">Cover photo</Label>
-							<div className="h-44 w-3/4  rounded-lg bg-muted"></div>
-							<p className="text-muted ">
+							<Label className="text-xl text-primary-content">
+								Cover photo
+							</Label>
+							<div className="du-avatar">
+								{selectedCoverImage ? (
+									<div className="w-52 h-44 rounded-full">
+										<Image
+											src={selectedCoverImage}
+											width={300}
+											height={300}
+											alt="profile photo"
+										/>
+									</div>
+								) : (
+									<div className="h-44 w-52 rounded-lg bg-muted"></div>
+								)}
+							</div>
+							<p className="text-muted text-sm">
 								{`Images must be 2400px wide by 600px high and in JPEG or PNG format. See our blog post for tips on designing eye catching cover photos.`}
 							</p>
 							<Input
-								className="rounded-full w-3/4 file:bg-accent file:h-full file:rounded-full file:cursor-pointer p-0"
+								className="rounded-full w-3/4 file:du-btn file:du-btn-secondary file:bg-accent file:min-h-0 file:h-full file:rounded-full file:py-0 p-0"
 								type="file"
-								{...register("coverPhoto")}
+								{...(register("coverPhoto"),
+								{ onChange: handleCoverPhotoChange })}
 								placeholder=""
 							/>
+							{errors.coverPhoto && (
+								<span className="text-warning">
+									{errors.coverPhoto.message}
+								</span>
+							)}
 						</div>
 					</div>
 				</div>
@@ -269,12 +387,12 @@ const DesignerSignupForm = (props: Props) => {
 					{errors.country && <span>{errors.country.message}</span>}
 				</div>
 				<div className="flex justify-center items-center">
-					<Button
+					<button
 						type="submit"
-						className="rounded-full px-10 bg-black/60 hover:bg-accent transition-all duration-150"
+						className="rounded-full du-btn du-btn-secondary"
 					>
 						Confirm
-					</Button>
+					</button>
 				</div>
 			</div>
 		</form>

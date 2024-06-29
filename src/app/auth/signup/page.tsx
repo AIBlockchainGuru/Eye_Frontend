@@ -1,12 +1,14 @@
 "use client";
 import SignupForm from "@/components/auth/SignUpForm";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import React, { useState } from "react";
 
 type Props = {};
 
 const Signup = (props: Props) => {
+	const router = useRouter();
 	const [signupType, setSignUpType] = useState<"artist" | "customer">(
 		"customer"
 	);
@@ -37,7 +39,10 @@ const Signup = (props: Props) => {
 						className={`du-btn md:w-full w-1/2 border-[1px] border-white/80 flex flex-col items-center text-center md:h-20 md:py-16 ${
 							signupType === "artist" && "du-btn-primary"
 						}`}
-						onClick={() => setSignUpType("artist")}
+						onClick={() => {
+							setSignUpType("artist");
+							router.push("/auth/signup/designer");
+						}}
 					>
 						<h1 className="text-3xl font-heading1 ">artists</h1>
 						<h2 className="font-extralight w-1/2 text-wrap hidden md:block">
