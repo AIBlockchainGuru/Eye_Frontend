@@ -19,18 +19,20 @@ const ProductCard = ({
 	);
 
 	const handleHover = () => {
-		setImage(otherImages[2]);
+		if (otherImages[2]) setImage(otherImages[2]);
 	};
 
 	const handleMouseLeave = () => {
 		setImage(mainImageUrl ? mainImageUrl : "/shirt.png");
 	};
 
-	if (!mainImageUrl || !price) {
+	if (!image || !price) {
+		console.log("some info: ", mainImageUrl, price);
+
 		return <LoadingCard />;
 	}
 	return (
-		<div className="   group flex flex-col gap-1 overflow-hidden  ">
+		<div className=" group flex flex-col gap-1 overflow-hidden relative">
 			<Link href="">
 				<div onMouseEnter={handleHover} onMouseLeave={handleMouseLeave}>
 					<Image src={image} alt="product" width={247} height={330} />
@@ -50,8 +52,17 @@ const ProductCard = ({
 				<div className="  bg-yellow-300 rounded-full w-7 h-7 mr-2 hover:scale-105 focus:scale-95"></div>
 				<div className="  bg-slate-300 rounded-full w-7 h-7 mr-2 hover:scale-105 focus:scale-95"></div>
 			</div>
-			<div className="absolute left-96 bg-red-400">
-				<ProductSideviewSheet imageUrl={mainImageUrl} />
+			<div className="absolute right-0 top-0 ">
+				<ProductSideviewSheet
+					category={category as string}
+					imageUrl={image}
+					title={"keep rocking.."}
+					artistName={"lexica"}
+					price={"14.5"}
+					productId={"asdawdawd"}
+					colors={["red", "blue", "yellow", "black"]}
+					sizes={["M", "S"]}
+				/>
 			</div>
 		</div>
 	);

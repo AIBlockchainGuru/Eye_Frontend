@@ -15,6 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Router, { usePathname, useRouter } from "next/navigation";
 
 import SearchComponent from "./SearchComponent";
+import Image from "next/image";
 
 interface Category {
 	id: number;
@@ -36,7 +37,7 @@ const Header = () => {
 	const [lastScrollY, setLastScrollY] = useState<number>(0);
 	const [textColor, setTextColor] = useState<string>("text-black");
 	const [categories, setCategories] = useState<Category[] | null>(null);
-	const [active, setActive] = useState<boolean>(false);
+	const [active, setActive] = useState<boolean>(true);
 
 	const pathName = usePathname();
 
@@ -156,17 +157,24 @@ const Header = () => {
 			{/* <div
     className={`bg-red-w-full flex justify-between`}
   > */}
-			<div className="flex gap-2 items-center ml-5 ">
+			<div className="flex gap-2 items-center ml-5 h-full ">
 				<Link href="/">
-					<div className=" flex items-end gap-2 ">
+					<div className="flex h-full max-h-full gap-2 overflow-hidden items-center bg-red-300">
 						{/* <img
 							src="/logo.png"
 							alt="logo"
 							className="w-[40px] md:w-[50px] drop-shadow-lg"
 						/> */}
-						<p className="md:text-3xl text-xl font-light font-heading1">
+						{/* <p className="md:text-3xl text-xl font-light font-heading1">
 							Deauth
-						</p>
+						</p> */}
+						<Image
+							src={"/logo.jpeg"}
+							height={100}
+							width={100}
+							alt="logo"
+							className="inset-0 overflow-clip"
+						/>
 					</div>
 				</Link>
 			</div>
@@ -202,7 +210,7 @@ const Header = () => {
 				<button>
 					<a
 						className=" px-5 py-4 hover:bg-black/[0.05] transition-all duration-200"
-						href="#"
+						href="auth/login"
 					>
 						<span
 							className={` font-bold  active:scale-105 duration-300 transition-all  `}
@@ -214,7 +222,7 @@ const Header = () => {
 				<button>
 					<a
 						className=" px-5 py-4 hover:bg-black/[0.05] transition-all duration-200"
-						href="#"
+						href="/auth/signup"
 					>
 						<span
 							className={` font-bold  active:scale-105 duration-300 transition-all  `}

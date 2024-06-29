@@ -11,7 +11,7 @@ import {
 
 const HeroBanner = () => {
 	return (
-		<div className="w-screen h-fit relative mt-9 ">
+		<div className="w-screen h-fit relative	">
 			<Carousel className="w-full  ">
 				<CarouselNext />
 				<CarouselNext />
