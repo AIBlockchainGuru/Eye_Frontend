@@ -1,7 +1,7 @@
 // pages/design-selection.js
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import ImageOverlay from "./image";
+import ImageOverlay from "./ImageOverlay";
 import styles from "./DesignSelection.module.css"; // Import your CSS file
 import Link from "next/link";
 import { Button } from "@mui/material";

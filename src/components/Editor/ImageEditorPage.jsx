@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import ImageEditor from "./index2";
+import ImageEditor from "./ImageEditor";
 
 function ImageEditorPage() {
 	// Get the router instance
