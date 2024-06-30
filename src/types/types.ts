@@ -16,7 +16,6 @@ export interface DashboardSettings {
 
 export interface Design {}
 
-
 export interface Product {}
 
 export interface Product {
@@ -42,8 +41,21 @@ export type PageType = {
 	totalPages: number;
 };
 
-
-export interface Designer {}
+export type DesignCardProps = {
+	designImageUrl: string;
+	designName: string;
+	designerId: string;
+	designerName: string;
+};
+export type DesignerCardProps = {
+	designImageUrl: string;
+	profileImageUrl: string;
+	designerName: string;
+	designName: string;
+	designerId: string;
+	designerFollowers: number;
+	totalDesigns: number;
+};
 
 export interface CartItem {}
 

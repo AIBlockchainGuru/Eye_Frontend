@@ -2,15 +2,9 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
 import { Skeleton } from "../ui/skeleton";
+import { DesignCardProps } from "@/types/types";
 
-type Props = {
-	designImageUrl: string;
-	designName: string;
-	designerId: string;
-	designerName: string;
-};
-
-const DesignCard = (props: Props) => {
+const DesignCard = (props: DesignCardProps) => {
 	return (
 		<div>
 			<div className="  h-[22em] w-[15em] flex flex-col gap-5 text-white ">
