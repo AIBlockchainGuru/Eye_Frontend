@@ -53,25 +53,29 @@ export function ProductSideviewSheet({
 					<GrView className="bg-transparent text-black" />
 				</Button>
 			</SheetTrigger>
-			<SheetContent className="bg-base-100 text-base-content">
+			<SheetContent className="bg-black text-base-content border-none">
 				<SheetHeader>
-					<SheetTitle>{category}</SheetTitle>
+					<SheetTitle className="text-white m-2 font-bold">
+						{category}
+					</SheetTitle>
 				</SheetHeader>
 				<div className="du-card du-card-compact w-3/4 ">
 					<figure className="">
 						<Image src={imageUrl} alt="rpod" width={1000} height={1000}></Image>
 					</figure>
-					<div className="du-card-body ">
+					<div className="du-card-body flex flex-col gap-3">
 						<div className="du-card-title">{title}</div>
 						<div className="text-sm text-muted-foreground">
 							{"by " + artistName}
 						</div>
 						<div className="du-card-price text-primary">{"$" + price}</div>
+
+						{/* colour select buttons  */}
 						<div className="du-carousel bg-transparent gap-2 ">
 							{colors.map((color) => {
 								let outline = "border-none ";
 								if (color === selectedColour) {
-									outline = "du-btn-outline border-black border-2";
+									outline = " border-white border-[1px]";
 								}
 								return (
 									<button
@@ -88,7 +92,7 @@ export function ProductSideviewSheet({
 						</div>
 
 						{/* size selection  */}
-						<div className="flex flex-col">
+						<div className="flex flex-col gap-2 ">
 							<p className="justify-end">few sizes left</p>
 							<div className="du-carousel bg-transparent gap-2 ">
 								{sizes.map((size) => {
@@ -110,6 +114,9 @@ export function ProductSideviewSheet({
 								})}
 							</div>
 						</div>
+
+						{/* add to cart button  */}
+						<div className="du-btn bg-white/20">Add to cart</div>
 					</div>
 					<div className="grid grid-cols-4 items-center gap-4"></div>
 				</div>
