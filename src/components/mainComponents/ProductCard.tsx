@@ -53,34 +53,61 @@ const ProductCard = ({
     return <LoadingCard />;
   }
 
+  interface SizeMap {
+    [key: string]: string;
+  }
+  const imageSize: SizeMap = {
+    small: "w-full h-44", // e.g., mobile size
+    medium: "w-44 h-52", // e.g., tablet size
+    large: "w-72 h-80", // e.g., desktop size
+  };
+  const cardWidth: SizeMap = {
+    small: "w-full ", // e.g., mobile size
+    medium: "w-44 ", // e.g., tablet size
+    large: "w-72 ", // e.g., desktop size
+  };
+
   return (
-    <div className="group flex flex-col gap-1 overflow-hidden relative">
+    <div
+      className={`group flex flex-col gap-1 overflow-hidden  relative mx-auto md:mx-0 ${cardWidth.small} md:${cardWidth.medium} lg:${cardWidth.large} rounded-lg bg-black text-white`}
+    >
       <Link href="">
         <div onMouseEnter={handleHover} onMouseLeave={handleMouseLeave}>
-          <Image src={image} alt="product" width={247} height={330} />
+          <Image
+            src={image}
+            alt="product"
+            width={247}
+            height={330}
+            className={`${imageSize.small} md:${imageSize.medium} lg:${imageSize.large}`}
+          />
         </div>
       </Link>
-      <div className="flex flex-col text-left gap-1">
-        <div className="text-2xl font-bold">{productName}</div>
-        <div className="text-lg text-muted-foreground">
+
+      {/* product details  */}
+      <div className="flex flex-col text-left gap-[1px] px-2">
+        <div className="text-lg md:text-xl font-bold">{productName}</div>
+        <div className="text-md md:text-lg text-muted">
           {designs[0]?.designerName || "Unknown Artist"}
         </div>
+
+        <div className="text-muted group-hover:text-accent transition-all duration-200 text-lg text-opacity-85">
+          ${selectedVariant.price}
+        </div>
+
+        <div className="flex flex-row justify-start   py-1">
+          {colorVariants.map((variant, index) => (
+            <div
+              key={variant.color}
+              className={`rounded-full w-5 h-5 mr-2 hover:scale-105 focus:scale-95 cursor-pointer ring-1 ${
+                index === selectedColorIndex ? "ring-2 ring-black" : ""
+              }`}
+              style={{ backgroundColor: variant.color }}
+              onClick={() => setSelectedColorIndex(index)}
+            ></div>
+          ))}
+        </div>
       </div>
-      <div className="text-accent group-hover:text-muted-foreground transition-all duration-200 text-2xl">
-        ${selectedVariant.price}
-      </div>
-      <div className="flex flex-row justify-start">
-        {colorVariants.map((variant, index) => (
-          <div
-            key={variant.color}
-            className={`rounded-full w-7 h-7 mr-2 hover:scale-105 focus:scale-95 cursor-pointer ${
-              index === selectedColorIndex ? "ring-2 ring-black" : ""
-            }`}
-            style={{ backgroundColor: variant.color }}
-            onClick={() => setSelectedColorIndex(index)}
-          ></div>
-        ))}
-      </div>
+
       <div className="absolute right-0 top-0 ">
         <ProductSideviewSheet
           category={category}

@@ -50,28 +50,29 @@ export default function DesignerCard(props: DesignerCardProps) {
           />
         </div>
       </div>
-      <div className=" max-h-full w-full flex flex-col gap-3">
+      <div className=" max-h-full w-full flex flex-col gap-2 text-black">
         <div className="text-center text-xl font-heading1">
           {props.designerName}
         </div>
-        <div className="flex flex-row gap-2 w-fit mx-auto text-black text-sm tracking-tight text-muted-foreground px-3">
+        <div className="flex flex-row gap-2 w-fit mx-auto text-black text-sm tracking-tight  px-3">
           <div className="text-center">
             {props.designerFollowers + " followers"}
           </div>
           <div className="text-center">{props.totalDesigns + " designs"}</div>
         </div>
+        <div className="w-fit mx-auto">
+          <Button
+            className="bg-transparent rounded-full border-muted hover:bg-accent hover:text-black hover:border-0 transition-all duration-75 border-2"
+            onClick={() => {
+              handleFollow(props.designerId);
+            }}
+            disabled={loading}
+          >
+            follow
+          </Button>
+        </div>
       </div>
-      <div className="w-fit mx-auto">
-        <Button
-          className="bg-transparent text-muted-foreground rounded-full border-muted hover:bg-accent hover:text-black hover:border-0 transition-all duration-75 border-2"
-          onClick={() => {
-            handleFollow(props.designerId);
-          }}
-          disabled={loading}
-        >
-          follow
-        </Button>
-      </div>
+
       <ToastContainer position="bottom-center" />
     </div>
   );
