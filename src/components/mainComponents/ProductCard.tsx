@@ -90,7 +90,7 @@ const ProductCard = ({
           {designs[0]?.designerName || "Unknown Artist"}
         </div>
 
-        <div className="text-muted group-hover:text-accent transition-all duration-200 text-lg text-opacity-85">
+        <div className="text-muted group-hover:text-accent transition-all duration-200 text-lg text-opacity-">
           ${selectedVariant.price}
         </div>
 

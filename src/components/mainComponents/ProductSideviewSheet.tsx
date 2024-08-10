@@ -120,11 +120,7 @@ export function ProductSideviewSheet({
           </div>
           <div className="grid grid-cols-4 items-center gap-4"></div>
         </div>
-        <SheetFooter>
-          {/* <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose> */}
-        </SheetFooter>
+        <SheetFooter>{/* <SheetClose asChild> */}</SheetFooter>
       </SheetContent>
     </Sheet>
   );
