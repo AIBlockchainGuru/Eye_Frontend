@@ -53,7 +53,7 @@ const PersonalizedPicks = () => {
       <div className="text-center font-heading1 text-4xl text-black">
         Picks For You
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 md:gap-5 gap-2 my-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 md:gap-5 gap-2 my-6 mx-3">
         {loading
           ? Array(5)
               .fill(0)

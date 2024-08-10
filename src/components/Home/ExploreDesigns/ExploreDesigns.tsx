@@ -20,14 +20,14 @@ const ExploreDesigns = (props: Props) => {
   return (
     <div className="">
       <div>
-        <p className="lg:text-5xl font-heading1 text-white text-left  mt-[2em]">
-          Explore Designs
+        <p className="lg:text-5xl md:text-3xl text-xl font-heading1 text-white text-left  mt-[2em] px-5 md:px-8 lg:px-10">
+          {"Explore Designs"}
         </p>
       </div>
 
       <div className="flex justify-center gap-2  py-3  mt-5 rounded-lg   w-full">
         <Carousel className="w-full  ">
-          <CarouselContent className="px-5 gap-5 lg:gap-10">
+          <CarouselContent className=" gap-5 lg:gap-10 px-5 md:px-8 lg:px-10">
             {loading || designs.length === 0
               ? [1, 2, 3, 4, 5].map((e, idx) => {
                   return (
@@ -40,9 +40,10 @@ const ExploreDesigns = (props: Props) => {
                 })
               : designs.map((e, index) => (
                   <DesignCard
+                    _id={e.designId}
                     designImageUrl={e.designPhotoUrl}
                     designName={e.designName}
-                    designerId={e._id}
+                    designerId={e.designerId}
                     designerName={e.designerName}
                     key={index}
                   />

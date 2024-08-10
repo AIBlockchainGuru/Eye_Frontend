@@ -79,3 +79,11 @@ export interface DesignerCardProps {
 export interface CartItem {}
 
 export interface ShirtColour {}
+
+export interface ColorVariant {
+  color: string;
+  productId: string;
+  mainImageUrl: string;
+  otherImages: string[];
+  price: number;
+}
