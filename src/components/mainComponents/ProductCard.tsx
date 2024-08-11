@@ -57,14 +57,14 @@ const ProductCard = ({
     [key: string]: string;
   }
   const imageSize: SizeMap = {
-    small: "w-full h-44", // e.g., mobile size
-    medium: "w-44 h-52", // e.g., tablet size
+    small: "w-fit h-44", // e.g., mobile size
+    medium: "w-72 h-80", // e.g., tablet size
     large: "w-72 h-80", // e.g., desktop size
   };
   const cardWidth: SizeMap = {
     small: "w-full ", // e.g., mobile size
-    medium: "w-44 ", // e.g., tablet size
-    large: "w-72 ", // e.g., desktop size
+    medium: "w-full ", // e.g., tablet size
+    large: "w-full ", // e.g., desktop size
   };
 
   return (
@@ -78,7 +78,7 @@ const ProductCard = ({
             alt="product"
             width={247}
             height={330}
-            className={`${imageSize.small} md:${imageSize.medium} lg:${imageSize.large}`}
+            className={`${imageSize.small} md:${imageSize.medium} lg:${imageSize.large} object-cover mx-auto`}
           />
         </div>
       </Link>
@@ -94,12 +94,12 @@ const ProductCard = ({
           ${selectedVariant.price}
         </div>
 
-        <div className="flex flex-row justify-start   py-1">
+        <div className="flex flex-row justify-start md:py-1 py-3">
           {colorVariants.map((variant, index) => (
             <div
               key={variant.color}
               className={`rounded-full w-5 h-5 mr-2 hover:scale-105 focus:scale-95 cursor-pointer ring-1 ${
-                index === selectedColorIndex ? "ring-2 ring-black" : ""
+                index === selectedColorIndex ? "ring-2 ring-white" : ""
               }`}
               style={{ backgroundColor: variant.color }}
               onClick={() => setSelectedColorIndex(index)}

@@ -32,7 +32,7 @@ const ExploreDesigns = (props: Props) => {
               ? [1, 2, 3, 4, 5].map((e, idx) => {
                   return (
                     <div key={idx}>
-                      <CarouselItem className="pl-1 basis-1/2 md:basis-1/3 lg:basis-1/6  ">
+                      <CarouselItem className="pl-1 basis-1/2 md:basis-1/3 xl:basis-1/6 lg:basis-1/4  ">
                         <LoadingCard />
                       </CarouselItem>
                     </div>

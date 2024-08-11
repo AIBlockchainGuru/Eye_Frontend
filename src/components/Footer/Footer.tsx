@@ -6,21 +6,21 @@ import { FooterStripOrange, FooterStripGray } from "./FooterStrips";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white  pb-3 ">
+    <footer className="bg-black text-white  pb-3">
       <div className=" w-screen relative rotate-1">
         <FooterStripOrange />
       </div>
       <div className=" w-screen relative -rotate-[5deg] overflow-hidden   -top-32 -z-20">
         <FooterStripGray />
       </div>
-      <Wrapper className="flex justify-between flex-col md:flex-row gap-[50px] md:gap-0">
-        <div className="flex-col flex gap-5">
+      <Wrapper className="flex justify-between flex-col md:flex-row gap-[50px] md:gap-0 mx-auto md:mx-0">
+        <div className="flex-col flex gap-5 mx-auto md:mx-0">
           <div>
             <div className="font-heading1 text-5xl">Deauth</div>
             <div></div>
           </div>
           <div className="size-64 bg-red-300 rounded-lg"></div>
-          <div className="flex flex-col gap-4 justify-center md:justify-start md:flex-row">
+          <div className="flex gap-4 justify-center md:justify-start flex-row">
             <a
               href="https://facebook.com"
               className="w-10 h-10 rounded-full bg-white/[0.25] flex items-center justify-center text-black hover:bg-white/[0.5] cursor-pointer"

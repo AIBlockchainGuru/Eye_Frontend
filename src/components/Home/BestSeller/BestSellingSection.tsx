@@ -64,9 +64,9 @@ const BestSellingSection = () => {
         </p>
       </div>
 
-      <div className="flex justify-center gap-2  py-3 pb-[4em] rounded-lg  shadow-sm  w-full">
+      <div className="flex justify-center gap-2  py-3  rounded-lg  shadow-sm  w-full">
         <Carousel className="w-full">
-          <CarouselContent className="justify-center items-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 md:gap-5 gap-2 mx-3">
+          <CarouselContent className="justify-center items-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:gap-5 gap-2 mx-3 ">
             {loading
               ? // Show loading placeholders
                 Array(5)
