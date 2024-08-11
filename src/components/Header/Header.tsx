@@ -150,9 +150,9 @@ const Header = () => {
 
   return (
     <div
-      className={`w-full h-[50px] md:h-[80px] ${
+      className={`${
         active ? "block" : "hidden"
-      }  flex justify-between  z-20 fixed bg-white top-0 transition-all duration-500  px-5`}
+      } w-full h-[50px] md:h-[80px]  flex justify-between  z-20 fixed bg-white top-0 transition-all duration-500  px-5`}
     >
       {/* <div
     className={`bg-red-w-full flex justify-between`}
@@ -193,44 +193,28 @@ const Header = () => {
         </div>
       )}
 
-      <div className="  flex items-center gap-2   ">
+      <div className="flex items-center gap-1   ">
         {/* {Button } */}
-        <button onClick={handleSellArtButton}>
-          <a
-            className="hidden md:block  px-5 py-4 hover:text- transition-all duration-200 text-accent"
-            href="#"
-          >
-            <span
-              className={`font-heading1 lg:text-xl text-sm text-nowrap active:scale-105 duration-300 transition-all  `}
-            >
-              Sell Your Art
-            </span>
-          </a>
+        <button
+          className="hidden md:block text-accent du-btn du-btn-primary text-black font-heading1 lg:text-xl text-sm text-nowrap"
+          onClick={handleSellArtButton}
+        >
+          Sell Your Art
         </button>
-        <button>
-          <a
-            className="hidden md:block  lg:px-5 py-4 hover:bg-black/[0.05] transition-all duration-200"
-            href="auth/login"
-          >
-            <span
-              className={`font-bold text-xs lg:text-lg text-nowrap  active:scale-105 duration-300 transition-all  `}
-            >
-              Log In
-            </span>
-          </a>
-        </button>
-        <button>
-          <a
-            className="hidden md:block  px-5 py-4 hover:bg-black/[0.05] transition-all duration-200"
-            href="/auth/signup"
-          >
-            <span
-              className={` font-bold  active:scale-105 duration-300 transition-all  `}
-            >
-              Sign Up
-            </span>
-          </a>
-        </button>
+
+        <a
+          className="hidden md:flex  du-btn du-btn-md du-btn-ghost my-auto items-center justify-center font-heading1 text-lg"
+          href="auth/login"
+        >
+          Log In
+        </a>
+
+        <a
+          className="hidden md:flex  du-btn du-btn-md du-btn-ghost my-auto items-center justify-center font-heading1 text-lg"
+          href="/auth/signup"
+        >
+          Sign Up
+        </a>
 
         <div className={`flex    `}>
           <div className="hidden md:flex w-8 md:w-12 h-8 md:h-12 rounded-full  justify-center items-center hover:bg-black/[0.05] cursor-pointer relative">

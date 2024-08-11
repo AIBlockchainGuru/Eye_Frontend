@@ -22,7 +22,7 @@ const CategoryCard = (props: Props) => {
         style={{ objectFit: "fill" }}
         className="shadow-md group-hover:shadow-lg group-hover:scale-105 group-hover:rotate-1 transition-all duration-300"
       />
-      <div className="text-bold text-2xl md:text-3xl lg:text-4xl font-heading1 text-white text-opacity-65">
+      <div className="text-bold text-xl md:text-2xl lg:text-3xl font-heading1 text-white text-opacity-65">
         {props.title}
       </div>
 

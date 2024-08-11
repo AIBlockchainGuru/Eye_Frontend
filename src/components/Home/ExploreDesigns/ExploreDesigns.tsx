@@ -20,7 +20,7 @@ const ExploreDesigns = (props: Props) => {
   return (
     <div className="">
       <div>
-        <p className="lg:text-5xl md:text-3xl text-xl font-heading1 text-white text-left  mt-[2em] px-5 md:px-8 lg:px-10">
+        <p className="lg:text-5xl md:text-3xl text-xl font-heading1 text-white text-left lg:mt-5 mt-2 px-5 md:px-8 lg:px-10">
           {"Explore Designs"}
         </p>
       </div>

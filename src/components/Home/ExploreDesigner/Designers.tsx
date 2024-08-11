@@ -20,7 +20,7 @@ const Designers = () => {
   return (
     <>
       <div>
-        <p className="lg:text-5xl md:text-4xl text-3xl font-heading1 text-black text-left px-5 md:px-8 lg:px-10 mt-[2em]">
+        <p className="lg:text-5xl md:text-4xl text-3xl font-heading1 text-black text-left px-5 md:px-8 lg:px-10 ">
           Artists to follow
         </p>
       </div>

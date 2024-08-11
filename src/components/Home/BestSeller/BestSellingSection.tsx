@@ -57,16 +57,16 @@ const BestSellingSection = () => {
   }, []);
 
   return (
-    <div>
+    <div className="h-fit">
       <div>
-        <p className="lg:text-5xl md:text-4xl text-3xl font-heading1 text-black text-left  mt-[2em] mx-auto w-fit md:mx-0">
+        <p className="lg:text-5xl md:text-4xl text-3xl font-heading1 text-black text-left mx-auto w-fit md:mx-0 ">
           BestSellers
         </p>
       </div>
 
       <div className="flex justify-center gap-2  py-3 pb-[4em] rounded-lg  shadow-sm  w-full">
         <Carousel className="w-full">
-          <CarouselContent className="justify-center items-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 md:gap-5 gap-2 my-6 mx-3">
+          <CarouselContent className="justify-center items-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 md:gap-5 gap-2 mx-3">
             {loading
               ? // Show loading placeholders
                 Array(5)
