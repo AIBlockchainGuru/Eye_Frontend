@@ -53,7 +53,7 @@ const ExploreSection = () => {
       <div className="lg:text-5xl md:text-4xl text-3xl font-heading1 text-black text-left px-5 md:px-8 lg:px-10 ">
         Latest Launch
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 md:gap-5 gap-2 my-6 mx-2">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:gap-5 gap-2 my-6 mx-2">
         {loading
           ? // Show loading placeholders
             Array(5)
