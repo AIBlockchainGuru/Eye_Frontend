@@ -35,10 +35,19 @@ const ProductCard = ({
   colorVariants,
   designs,
 }: UpdatedProductCardProps) => {
-  const [selectedColorIndex, setSelectedColorIndex] = useState(0);
-  const selectedVariant = colorVariants[selectedColorIndex];
+  const defaultColour = 0;
+  const [selectedColorIndex, setSelectedColorIndex] = useState(defaultColour);
+  const [selectedVariant, setSelectedVariant] = useState<ColorVariant>(
+    colorVariants[defaultColour],
+  );
 
   const [image, setImage] = useState(selectedVariant.mainImageUrl);
+
+  const handleColour = (index: number) => {
+    setSelectedColorIndex(index);
+    setSelectedVariant(colorVariants[index]);
+    setImage(colorVariants[index].mainImageUrl);
+  };
 
   const handleHover = () => {
     if (selectedVariant.otherImages[0])
@@ -102,7 +111,7 @@ const ProductCard = ({
                 index === selectedColorIndex ? "ring-2 ring-white" : ""
               }`}
               style={{ backgroundColor: variant.color }}
-              onClick={() => setSelectedColorIndex(index)}
+              onClick={() => handleColour(index)}
             ></div>
           ))}
         </div>
